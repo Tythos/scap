@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "3.0.2"
+    }
+  }
+}
+
 provider "kubernetes" {
   host                   = var.K8S_HOST
   client_certificate     = base64decode(var.K8S_CERT)
