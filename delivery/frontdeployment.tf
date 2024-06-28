@@ -20,9 +20,8 @@ resource "kubernetes_deployment" "frontdeployment" {
 
       spec {
         container {
-          # this is a neat trick--but it's not obvious to me if this will work for remote clusters
-          image = docker_image.frontimage.image_id
-          name  = docker_image.frontimage.name
+          image = docker_image.frontimage.name
+          name  = "${var.NAMESPACE}-front"
         }
       }
     }

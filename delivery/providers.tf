@@ -7,6 +7,14 @@ terraform {
   }
 }
 
+provider "docker" {
+  registry_auth {
+    address  = var.REGISTRY_HOST
+    username = var.REGISTRY_USERNAME
+    password = var.REGISTRY_CREDENTIAL
+  }
+}
+
 provider "kubernetes" {
   host                   = var.K8S_HOST
   client_certificate     = base64decode(var.K8S_CERT)
