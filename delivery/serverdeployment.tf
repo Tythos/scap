@@ -1,27 +1,27 @@
-resource "kubernetes_deployment" "frontdeployment" {
+resource "kubernetes_deployment" "serverdeployment" {
   metadata {
-    name      = "frontdeployment"
+    name      = "serverdeployment"
     namespace = kubernetes_namespace.namespace.metadata[0].name
   }
 
   spec {
     selector {
       match_labels = {
-        app = "${var.APP_NAME}-front"
+        app = "${var.APP_NAME}-server"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "${var.APP_NAME}-front"
+          app = "${var.APP_NAME}-server"
         }
       }
 
       spec {
         container {
-          image = docker_registry_image.frontregistryimage.name
-          name  = "${var.APP_NAME}-front"
+          image = docker_registry_image.serverregistryimage.name
+          name  = "${var.APP_NAME}-server"
         }
       }
     }

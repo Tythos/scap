@@ -1,5 +1,5 @@
 resource "kubernetes_namespace" "namespace" {
   metadata {
-    name = var.NAMESPACE
+    name = "${var.APP_NAME}namespace"
   }
 }

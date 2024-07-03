@@ -6,7 +6,7 @@
 
 Basic Yarn-defined Vite application from a vanilla template.
 
-### service
+### server
 
 Basic Flask-defined WSGI application hosted via Gevent.
 
@@ -20,7 +20,7 @@ Collection of Terraform resources for deploying the application stack to a targe
 
 ### targets
 
-The values defined in `delivery/terraform.tfvars` can be used to control where the application will be deployed by providing specific details about the target cluster; specific details documenting the usage of each variable can be found in the corresponding `variables.tf` specification.
+The values defined in `terraform.tfvars` can be used to control where the application will be deployed by providing specific details about the target cluster; specific details documenting the usage of each variable can be found in the corresponding `variables.tf` specification.
 
 To test this approach, two different clusters were used:
 
@@ -28,7 +28,7 @@ To test this approach, two different clusters were used:
 
 1. A cloud provider cluster using DigitalOcean (configured separately)
 
-Deployment takes place from the `./delivery` folder using the usual Terraform three-step:
+Deployment takes place from the `./delivery` folder files, captured as a module from the top level, using the usual Terraform three-step:
 
 ```sh
 $ terraform init
